@@ -1,2 +1,85 @@
-def track():
+def track(original_file, spoken_file):
+    """
+    Main function of the text-tracker package.
+    :param original_file: file containing original text, with pages separated
+    by lines
+    :param spoken_file: file containing spoken text, with pages separated by
+    lines
+    :return: list of optimal indeces aligning the words in the spoken file to
+    those in the original file
+    """
     pass
+
+
+def get_data(original_file, spoken_file):
+    """
+    Loads data given files.
+    :param original_file: file with the written text
+    :param spoken_file: file with the spoken_text text
+    :return: original_text and spoken_text lists; lists of lists of words
+    """
+    # define original_text list
+    original_text = [line.lower().split() for line in original_file]
+
+    # define spoken_text list
+    spoken_text = [line.lower().split() for line in spoken_file]
+
+    # for each line, if a spoken_text word doesn't exist, ignore it
+    for row_number, word_array in enumerate(spoken_text):
+        for index, word in enumerate(word_array):
+            if word not in original_text[row_number] and 0:
+                word_array.pop(index)
+
+    return original_text, spoken_text
+
+
+# example match_indeces: [0, 1, 2, 1, 3, 4]
+# example return value: [0, 0, -2, 2, 0]
+def generate_match_steps(match_indeces):
+    """
+    Create step vector
+    :param match_indeces: list of possible indeces
+    :return: list of step sizes
+    """
+    return [b - match_indeces[a] - 1 for a, b in enumerate(match_indeces[1:])]
+
+
+# example spoken string: "One day a bird bird met hippo."
+# example actual string: "One day a bird met a hippo."
+# example index_list: [[0], [1], [2,5], [3], [3], [4], [6]]
+# example return value: [[0, 1, 2, 3, 3, 4, 6], [0, 1, 5, 3, 3, 4, 6]
+def generate_match_indeces(index_list):  # "The Permutator"
+    """
+    The hard part: generating every possible list of indeces
+    :param index_list: list of lists of possible indeces
+    :return: array of possible index lists
+    """
+    # permutations will be the size of the return value (number of rows)
+    permutations = 1
+    for element in index_list:
+        permutations *= len(element)
+
+
+# example spoken_string_list: ['one','day','a','bird','bird','met','hippo']
+# example original_string_list: ['one','day','a','bird','met','a','hippo']
+# example return value: [[0], [1], [2,5], [3], [3], [4], [6]]
+def generate_index_list(original_string_list, spoken_string_list):
+    """
+
+    :param original_string_list: list of words
+    :param spoken_string_list: list of words
+    :return: index list
+    """
+    return [[index for index, value in enumerate(original_string_list)
+             if value == word]
+            for word in spoken_string_list]
+
+# the challenging part of tracking,
+# is listing every possible permutation.
+
+# match_steps - array where each row is a permutation.
+# rows give the jump size.
+
+# match_indeces - array where each row is a permutation.
+# rows give the most likely index of the word.
+
