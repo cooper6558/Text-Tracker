@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: text-tracker
-Version: 1.0.0
+Version: 1.0.1
 Summary: Keep track of text locations!
 Home-page: https://github.com/supercooper6558/Text-Tracker
 Author: Cooper Sanders
@@ -30,7 +30,7 @@ Description: ## Text Tracker
         ### Usage
         This package is available on PyPI and can be installed via
         
-        `pip install text_tracker`
+        `pip install text-tracker`
         
         and used via
         ```python
