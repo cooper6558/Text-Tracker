@@ -2,7 +2,6 @@ import setuptools
 
 with open("README.md", 'r') as f:
     long_description = f.read()
-# TODO: Update url & python_requires, also README.md documentation source
 setuptools.setup(
     name='text-tracker',
     version='1.0.0',
