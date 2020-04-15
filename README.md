@@ -33,17 +33,17 @@ and used via
 
 View this project on GitHub:
 
-[hyperlink here]
+<https://github.com/supercooper6558/Text-Tracker>
 ### Credits
 This was developed by Cooper Sanders in 2020 and is MIT licensed. You can
 contact me at
 
-<tromboneguy@coopersanders.com>
+<mailto:tromboneguy@coopersanders.com>
 
 clemson.edu domain email addresses can contact me at 
 
-<cssande@clemson.edu>
+<mailto:cssande@clemson.edu>
 
 My website:
 
-<coopersanders.com>
+<https://coopersanders.com>
